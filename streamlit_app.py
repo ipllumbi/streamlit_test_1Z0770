@@ -2,6 +2,8 @@ import json
 import streamlit as st
 
 st.set_page_config(layout="wide")
+
+
 def scrape():
     with open('./docs/1z0770.json', 'r') as file:
         questions = json.load(file)
