@@ -27,4 +27,6 @@ create_page = st.Page("test.py", title="Take test", default=True)
 delete_page = st.Page("question_list.py", title="Questions list")
 
 pg = st.navigation([st.Page("test.py"), st.Page("question_list.py")])
-pg.run()
+
+if __name__ == "__main__":
+    pg.run()
