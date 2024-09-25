@@ -24,10 +24,7 @@ selected_answers = []
 current_question_answer_options = utils.get_current_question_answers()
 for answer in current_question_answer_options:
     selected = st.checkbox(label=answer["answer_desc"], value=(True if answer['selected'] == 'Y' else False))
-    if selected:
-        answer["selected"] = "Y"
-    else:
-        answer["selected"] = "N"
+    answer["selected"] = "Y" if selected else "N"
 
     correct_answers.append(answer["correct_flag"] == "Y")
     selected_answers.append(answer["selected"] == "Y")

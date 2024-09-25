@@ -1,5 +1,6 @@
 import json
 import streamlit as st
+import pandas as pd
 
 
 
@@ -106,6 +107,9 @@ def count_no_answer_questions():
             questions_no_answers += 1
 
     return questions_no_answers
+
+def get_question_list_df():
+    return pd.DataFrame(get_question_list(), columns=(['question_description', 'confirmed', 'correct']))
 
 def write_results():
     col1, col2 = st.columns(2)

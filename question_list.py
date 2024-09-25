@@ -4,12 +4,12 @@ import utils
 
 
 def on_select():
-    selectedrow = st.session_state['selected_row']["selection"]["rows"]
-    if selectedrow in st.session_state:
-        utils.set_current_question_indx(selectedrow[0])
+    selected_row = st.session_state.get('selected_row')
+    selection_index = st.session_state['selected_row']["selection"]["rows"][0]
+    utils.set_current_question_indx(selection_index)
 
 
-df = pd.DataFrame(utils.get_question_list(), columns=(['question_description', 'confirmed', 'correct']))
+df = utils.get_question_list_df()
 
 df['confirmed'] = df['confirmed'].replace('N', '🚨')
 df['confirmed'] = df['confirmed'].replace('Y', '✅')
